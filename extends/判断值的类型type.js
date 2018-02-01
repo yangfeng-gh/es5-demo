@@ -5,20 +5,19 @@ function type(o) {
   //识别原始值的类型和函数
   if ((t = typeof(o)) !== "object") {
     return t;
-    console.log("t" + t);
   }
   //识别大多数内置对象
-  if ((c = classof(o)) !== "Object") {
+  if ((c = classOf(o)) !== "Object") {
     return c;
-    console.log("c" + c);
   }
   //自定义对象返回构造函数的名字
-  if (o.constructor && typeof o.constructor === "function" && (n = o.constructor.getName())) return n;
+  if (o.constructor && typeof o.constructor === "function" && o.constructor.getName())
+    return o.constructor.getName();
   //其它类型无法识别，一律返回"Object"
   return "Object";
 }
 
-function classof(o) {
+function classOf(o) {
   if (o === null) return "Null";
   if (o === undefined) return "Undefined";
   return Object.prototype.toString.call(o).slice(8, -1); // Object.prototype.toString.call(o)的值是[object Array]
@@ -34,6 +33,7 @@ var Complex = function (x, y) {
   this.r = x;
   this.i = y;
 };
+
 //这个构造函数有名字
 var Range = function Range(f, t) {
   this.from = f;

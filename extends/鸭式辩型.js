@@ -104,8 +104,10 @@ console.log(wish3.toString());
  */
 Function.prototype.getName = function () {
   if ('name' in this) {
+    console.log('构造函数名字: ' + this.name);
     return this.name;
   }
+  console.log('构造函数名字2: ' + this.toString().match(/function\s*([^(]*)/));
   return this.name = this.toString().match(/function\s*([^(]*)/);
 };
 
