@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>检测客户端ECMAScript模式</title>
+</head>
+<body>
+<script>
+    function isStrictMode() {
+        return this;
+    }
+
+    if(isStrictMode()) {
+        alert('是es5非严格模式');
+    } else {
+        alert('是es5严格模式');
+    }
+</script>
+</body>
+</html>

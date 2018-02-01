@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>usr strict</title>
+</head>
+<body>
+<script>
+
+    var hasStrictMode = function() {
+        "use strict";
+        return this === undefined;
+    }
+
+    console.log(hasStrictMode());
+
+</script>
+</body>
+</html>
