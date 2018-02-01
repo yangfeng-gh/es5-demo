@@ -10,3 +10,12 @@ function inherit(p) {
   f.prototype = p; // 将其原型属性设置为p
   return new f(); // 使用f()创建p的继承对象
 }
+
+var parent = {
+  show: function() {
+    console.log('show run ...');
+  }
+};
+
+var child = inherit(parent);
+child.show();

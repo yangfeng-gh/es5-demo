@@ -6,7 +6,7 @@ function inherit(p) {
   if (t !== "object" && t !== "function") throw TypeError();
 
   function f() {
-  }; //定义一个空的构造函数
+  } //定义一个空的构造函数
   f.prototype = p; //将其原型属性设置为p
   return new f(); //使用f()创建p的继承对象
 }
@@ -34,8 +34,6 @@ range.method = {
 };
 var r = range(1, 3);
 var r2 = range(3, 4);
-r.includes(2);
-console.log("r comparTo r2: " + r.compareTo(r2));
-document.write(r);
+console.log('r.includes(2)' + r.includes(2));
+console.log('r comparTo r2: ' + r.compareTo(r2));
 r.foreach(console.log, console);
-r.foreach(document.write, document);
