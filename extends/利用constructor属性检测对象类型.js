@@ -1,3 +1,6 @@
+/**
+ * 利用constructor属性检测对象类型
+ */
 function typeAndValue(x) {
   if (x == null) return ""; //Null和Undefined没有构造函数
   switch (x.constructor) {
@@ -23,5 +26,5 @@ function typeAndValue(x) {
 }
 
 var today = new Date();
-console.log(today);
+console.log(typeAndValue(today));
 console.log(today.constructor);
