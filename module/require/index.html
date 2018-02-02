@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Asynchronous Module Definition</title>
+  <!--加载require.js也可能造成网页失去响应。解决办法有两个，一个是把它放在网页底部加载，另一个是写成下面这样：-->
+  <!--data-main属性的作用是，指定网页程序的主模块。在上例中，就是js目录下面的main.js，这个文件会第一个被require.js加载。-->
+  <!--由于require.js默认的文件后缀名是js，所以可以把main.js简写成main。-->
+  <script src="https://cdn.bootcss.com/require.js/2.3.5/require.js" defer async="true" data-main="app"></script>
+</head>
+<body>
+  <h3>asynchronous module definition - require.js</h3>
+  使用script标签加载js的写法有很大的缺点。
+  首先，加载的时候，浏览器会停止网页渲染，加载文件越多，网页失去响应的时间就会越长；
+  其次，由于js文件之间存在依赖关系，因此必须严格保证加载顺序（比如上例的1.js要在2.js的前面），
+  依赖性最大的模块一定要放到最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难。
+  
+  require.js的诞生，就是为了解决这两个问题:
+  （1）实现js文件的异步加载，避免网页失去响应；
+  （2）管理模块之间的依赖性，便于代码的编写和维护。
+
+  require.js要求，每个模块是一个单独的js文件。这样的话，如果加载多个模块，就会发出多次HTTP请求，会影响网页的加载速度。
+  因此，require.js提供了一个优化工具，当模块部署完毕以后，可以用这个工具将多个模块合并在一个文件中，减少HTTP请求数。
+</body>
+</html>
