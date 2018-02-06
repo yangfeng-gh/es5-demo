@@ -8,4 +8,5 @@ define(function (require) {
   // full IDs, like:
   var print = require('print');
   print(messages.getHello());
+  require('./jquery');
 });

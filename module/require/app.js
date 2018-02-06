@@ -15,12 +15,21 @@
 // Configure loading modules from the lib directory,
 // except for 'app' ones, which are in a sibling directory.
 requirejs.config({
+  //To get timely, correct error triggers in IE, force a define/shim exports check.
+  // enforceDefine: true,
   baseUrl: 'lib',
   paths: {
     app: '../app',
-    jquery: 'https://cdn.bootcss.com/jquery/1.8.3/jquery.js'
+    jquery: ['https://cdn.bootcss.com/jquery/1.8.3/jquery',
+      //If the CDN location fails, load from this location
+      'jquery-1.8.3'
+    ],
+    underscore: 'https://cdn.bootcss.com/underscore.js/0.2.0/underscore-min',
+    backbone: 'https://cdn.bootcss.com/backbone.js/0.2.0/backbone-min',
+    'jquery.scroll': 'https://cdn.bootcss.com/jquery.js-scrollTo/1.4.2/jquery.js.scrollTo.min'
   },
-  shim: {
+  waitSeconds: 15,
+  shim: { // 加载非规范的模块
     'underscore':{
       exports: '_'
     },
