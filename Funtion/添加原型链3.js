@@ -37,6 +37,7 @@ Object.appendChain = function (oChain, oProto) {
     oNewProto = Function.prototype;
     oReturn = Function.apply(null, Array.prototype.slice.call(arguments, 1));
     console.log('===' + oReturn);
+    console.log('===' + JSON.stringify(oLast));
     this.setPrototypeOf(oReturn, oLast);
     console.log('====' + oReturn);
   }
