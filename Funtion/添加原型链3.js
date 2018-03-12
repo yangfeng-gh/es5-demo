@@ -46,27 +46,12 @@ Object.appendChain = function (oChain, oProto) {
   return oReturn;
 };
 
-// 例一：给一个原型添加链
-function Mammal() {
-  this.isMammal = 'yes';
+// 例三：给函数类型的对象添加一个链，并添加一个新的方法到那个链上
+function Person(sName) {
+  this.identity = sName;
 }
 
-function MammalSpecies(sMammalSpecies) {
-  this.species = sMammalSpecies;
-}
+var george = Object.appendChain(new Person('George'), 'console.log("Hello guys!!");');
 
-var mammal = new Mammal();
-MammalSpecies.prototype = mammal;
-MammalSpecies.prototype.constructor = MammalSpecies;
-
-var oCat = new MammalSpecies('Felis');
-
-console.log(oCat.isMammal); // 'yes'
-
-function Animal() {
-  this.breathing = 'yes';
-}
-
-Object.appendChain(oCat, new Animal());
-
-console.log(oCat.breathing); // 'yes'
+console.log(george.identity); // 'George'
+george(); // 'Hello guys!!'

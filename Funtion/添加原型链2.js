@@ -46,27 +46,18 @@ Object.appendChain = function (oChain, oProto) {
   return oReturn;
 };
 
-// 例一：给一个原型添加链
-function Mammal() {
-  this.isMammal = 'yes';
+
+// 例二：将一个基本类型转化为对应的对象类型并添加到原型链上
+function Symbol() {
+  this.isSymbol = 'yes';
 }
 
-function MammalSpecies(sMammalSpecies) {
-  this.species = sMammalSpecies;
-}
+var nPrime = 17;
 
-var mammal = new Mammal();
-MammalSpecies.prototype = mammal;
-MammalSpecies.prototype.constructor = MammalSpecies;
+console.log(typeof nPrime); // 'number'
 
-var oCat = new MammalSpecies('Felis');
+var oPrime = Object.appendChain(nPrime, new Symbol());
 
-console.log(oCat.isMammal); // 'yes'
-
-function Animal() {
-  this.breathing = 'yes';
-}
-
-Object.appendChain(oCat, new Animal());
-
-console.log(oCat.breathing); // 'yes'
+console.log(oPrime); // '17'
+console.log(oPrime.isSymbol); // 'yes'
+console.log(typeof oPrime); // 'Object'
