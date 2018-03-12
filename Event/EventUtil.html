@@ -6,6 +6,7 @@
 </head>
 <body>
 <input type="text" name="test" id="t1"/>
+<button id="btn1">点击事件</button>
 <script>
     /*element代表元素，type代表事件类型，handler代表事件被触发时调用的方法 */
     var EventUtil = {
@@ -27,7 +28,9 @@
         }
     };
 
-    EventUtil.addHandler(element, type, handler);
+    EventUtil.addHandler(document.getElementById('btn1'), 'click', function() {
+      alert(1);
+    });
 </script>
 </body>
 </html>
