@@ -26,7 +26,10 @@ requirejs.config({
     ],
     underscore: 'https://cdn.bootcss.com/underscore.js/0.2.0/underscore-min',
     backbone: 'https://cdn.bootcss.com/backbone.js/0.2.0/backbone-min',
-    'jquery.scroll': 'https://cdn.bootcss.com/jquery.js-scrollTo/1.4.2/jquery.js.scrollTo.min'
+    'jquery.scroll': 'https://cdn.bootcss.com/jquery.js-scrollTo/1.4.2/jquery.js.scrollTo.min',
+    domReady: 'plugins/domReady',
+    text: 'plugins/text',
+    image: 'plugins/image'
   },
   waitSeconds: 15,
   shim: { // 加载非规范的模块

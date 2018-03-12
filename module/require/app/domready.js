@@ -1,5 +1,10 @@
-require(['domready!'], function (doc){
+define(function() {
 
-  // called once the DOM is ready
+  require(['domReady!'], function (doc){
+
+    // called once the DOM is ready
+    console.log(doc.getElementById('input1').value);
+
+  });
 
 });
