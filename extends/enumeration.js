@@ -30,6 +30,7 @@ function enumeration(namesToValues) {
       return this.name;
     }
   };
+
   enumeration.values = [];
   //创建新类型的实例
   for (name in namesToValues) {
@@ -45,8 +46,10 @@ function enumeration(namesToValues) {
       f.call(c, this.values[i]);
     }
   };
+
   return enumeration;
 }
+
 
 // 定义一个“扑克牌”类
 function Card(suit, rank) {
@@ -71,6 +74,8 @@ Card.Rank = enumeration({
   King: 13,
   Ace: 14
 });
+
+var s = new Card.Suit();
 
 //定义用以描述牌面的文本
 Card.prototype.toString = function () {
@@ -128,6 +133,6 @@ Deck.prototype.deal = function (n) {
 
 //创建一副新扑克牌，洗牌并发牌
 var deck = (new Deck()).shuffle();
-console.log(deck);
+// console.log(deck.cards);
 var hand = deck.deal(13);
 console.log(hand);
