@@ -5,10 +5,10 @@ function inherit(p) {
   var t = typeof p; //否则进一步检测类型
   if (t !== "object" && t !== "function") throw TypeError();
 
-  function f() {
+  function F() {
   }; //定义一个空的构造函数
-  f.prototype = p; //将其原型属性设置为p
-  return new f(); //使用f()创建p的继承对象
+  F.prototype = p; //将其原型属性设置为p
+  return new F(); //创建p的继承对象
 }
 
 function enumeration(namesToValues) {
