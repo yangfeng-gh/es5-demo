@@ -42,7 +42,7 @@ Object.appendChain = function (oChain, oProto) {
     return oReturn;
 };
 
-// 例子一：给一个原型添加链
+// 例一：给一个原型添加链
 function Mammal() {
   this.isMammal = 'yes';
 }
@@ -67,7 +67,7 @@ Object.appendChain(oCat, new Animal());
 
 console.log(oCat.breathing); // 'yes'
 
-// 例子二：将一个基本类型转化为对应的对象类型并添加到原型链上
+// 例二：将一个基本类型转化为对应的对象类型并添加到原型链上
 function Symbol() {
   this.isSymbol = 'yes';
 }
@@ -82,7 +82,7 @@ console.log(oPrime); // '17'
 console.log(oPrime.isSymbol); // 'yes'
 console.log(typeof oPrime); // 'Object'
 
-// 例子三：给函数类型的对象添加一个链，并添加一个新的方法到那个链上
+// 例三：给函数类型的对象添加一个链，并添加一个新的方法到那个链上
 function Person(sName) {
   this.identity = sName;
 }
