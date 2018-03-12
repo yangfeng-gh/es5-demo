@@ -1,9 +1,9 @@
 /**
- * js传值还是传址
+ * js传值还是传址?
  */
 var myObj = {
     status: 'before'
-}
+};
 function testByReferenceOrByValue(obj) {
     obj.status = 'after';
 }
@@ -11,3 +11,5 @@ function testByReferenceOrByValue(obj) {
 testByReferenceOrByValue(myObj);
 
 console.log(myObj.status);
+// after
+// 说明js形参是采用传址的策略
