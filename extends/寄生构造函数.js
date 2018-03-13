@@ -30,3 +30,9 @@ function SpecArray() {
 var colors = new SpecArray('red', 'green', 'blue');
 console.log(colors.toPipedString());
 
+function Date() {
+  console.log('自定义一个与原生构造函数同名的函数')
+}
+
+console.log(new Date()); // 自定义的函数优先级高于原生构造函数
+

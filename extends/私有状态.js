@@ -2,9 +2,7 @@
  * 私有状态
  */
 function Range(from, to) {
-  //不要将端点保存为对象的属性，相反
-  //定义存取器函数来返回端点的值
-  //这些值都保存在闭包中
+  //不要将端点保存为对象的属性，相反定义存取器函数来返回端点的值，这些值都保存在闭包中
   this.from = function () {
     return from;
   };
@@ -29,6 +27,8 @@ Range.prototype = {
 };
 
 var r = new Range(1, 5); //一个不可修改的范围
+console.log(r.from(), r.to());
 r.from = function () {
   return 0;
 }; //通过方法替换来修改它
+console.log(r.from(), r.to());
