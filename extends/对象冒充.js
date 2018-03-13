@@ -16,5 +16,5 @@ function ClassB(name, password) {
   }
 }
 
-var b = new ClassB('wwww', '1123');
-document.write(b.getName());
+var b = new ClassB('www', '123');
+console.log(b.getName());
