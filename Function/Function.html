@@ -12,19 +12,15 @@
 <input type="text" value="" id="result">
 <script>
   var scope = "global";
-  
   function constructFunction() {
     var scope = "local";
     return new Function("return scope"); //无法捕获局部作用域
   }
-  
   var result = constructFunction()(); // => "global"
-  
   /**
    * 由于js变量的作用域是在编译时决定而不是运行时，而Function()是在运行时动态地创建并编译函数
    * 因此编译时Funtion()并不存在，而运行时不确定决定该函数的作用域，所以动态创建的函数只会搜索全局和函数体内的变量
    */
-
   document.getElementById('result').value = result;
 </script>
 </body>
