@@ -49,7 +49,7 @@ var requirejs, require, define;
     }
 
     /**
-     * Helper function for iterating over an array. If the func returns
+     * Helper function for iterating over an Array. If the func returns
      * a true value, it will break out of the loop.
      */
     function each(ary, func) {
@@ -64,7 +64,7 @@ var requirejs, require, define;
     }
 
     /**
-     * Helper function for iterating over an array backwards. If the func
+     * Helper function for iterating over an Array backwards. If the func
      * returns a true value, it will break out of the loop.
      */
     function eachReverse(ary, func) {
@@ -225,13 +225,13 @@ var requirejs, require, define;
             unnormalizedCounter = 1;
 
         /**
-         * Trims the . and .. from an array of path segments.
+         * Trims the . and .. from an Array of path segments.
          * It will keep a leading path segment if a .. will become
          * the first path segment, to help with module name lookups,
          * which act like paths, but can be remapped. But the end result,
          * all paths that use this function should look normalized.
-         * NOTE: this method MODIFIES the input array.
-         * @param {Array} ary the array of path segments.
+         * NOTE: this method MODIFIES the input Array.
+         * @param {Array} ary the Array of path segments.
          */
         function trimDots(ary) {
             var i, part;
@@ -288,7 +288,7 @@ var requirejs, require, define;
 
                 // Starts with a '.' so need the baseName
                 if (name[0].charAt(0) === '.' && baseParts) {
-                    //Convert baseName to array, and lop off the last part,
+                    //Convert baseName to Array, and lop off the last part,
                     //so that . matches that 'directory' and not name of the baseName's
                     //module. For instance, baseName of 'one/two/three', maps to
                     //'one/two/three.js', but we want the directory, 'one/two' for
@@ -370,7 +370,7 @@ var requirejs, require, define;
         function hasPathFallback(id) {
             var pathConfig = getOwn(config.paths, id);
             if (pathConfig && isArray(pathConfig) && pathConfig.length > 1) {
-                //Pop off the first array value, since it failed, and
+                //Pop off the first Array value, since it failed, and
                 //retry
                 pathConfig.shift();
                 context.require.undef(id);
@@ -764,10 +764,10 @@ var requirejs, require, define;
                     });
                 }
 
-                //Do a copy of the dependency array, so that
+                //Do a copy of the dependency Array, so that
                 //source inputs are not modified. For example
                 //"shim" deps are passed in here directly, and
-                //doing a direct modification of the depMaps array
+                //doing a direct modification of the depMaps Array
                 //would affect that config.
                 this.depMaps = depMaps && depMaps.slice(0);
 
@@ -1380,7 +1380,7 @@ var requirejs, require, define;
                     }
                 });
 
-                //If a deps array or a config callback is specified, then call
+                //If a deps Array or a config callback is specified, then call
                 //require with those args. This is useful when require is defined as a
                 //config object before require.js is loaded.
                 if (cfg.deps || cfg.callback) {
@@ -1520,7 +1520,7 @@ var requirejs, require, define;
                         delete undefEvents[id];
 
                         //Clean queued defines too. Go backwards
-                        //in array so that the splices do not
+                        //in Array so that the splices do not
                         //mess up the iteration.
                         eachReverse(defQueue, function(args, i) {
                             if (args[0] === id) {
@@ -1659,7 +1659,7 @@ var requirejs, require, define;
 
                         parentPath = getOwn(paths, parentModule);
                         if (parentPath) {
-                            //If an array, it means there are a few choices,
+                            //If an Array, it means there are a few choices,
                             //Choose the one that is desired
                             if (isArray(parentPath)) {
                                 parentPath = parentPath[0];
@@ -1753,7 +1753,7 @@ var requirejs, require, define;
      * If the only argument to require is a string, then the module that
      * is represented by that string is fetched for the appropriate context.
      *
-     * If the first argument is an array, then it will be treated as an array
+     * If the first argument is an Array, then it will be treated as an Array
      * of dependency string names to fetch. An optional function callback can
      * be specified to execute when all of those dependencies are available.
      *

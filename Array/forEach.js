@@ -20,7 +20,7 @@ if (typeof Array.prototype.forEach != "function") {
 /*
 对比jQuery中的$.each方法：
 
-$.each([], function(index, value, array) {
+$.each([], function(index, value, Array) {
     // ...
 });
 */

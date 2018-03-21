@@ -11,12 +11,23 @@ function Set() {
     this.add.apply(this, arguments);
 }
 
-Complex.polar = function (r, theta) {
-  return new Complex(r * Math.cos(theta), r * Math.sin(theta));
-};
+// Complex.polar = function (r, theta) {
+//   return new Complex(r * Math.cos(theta), r * Math.sin(theta));
+// };
 
 Set.fromArray = function (a) {
   s = new Set();
   s.add.apply(s, a);
   return s;
 };
+
+function isArrayLike(o) {
+  if (typeof o === "object" &&
+    isFinite(o.length) &&
+    o.length >= 0 &&
+    Math.floor(o.length) === o.length &&
+    o.length <= 4294967296)
+    return true;
+  else
+    return false;
+}

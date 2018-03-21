@@ -183,14 +183,14 @@ console.log(a3);
 Function.prototype.unCurrying = function () {
   return this.call.bind(this);
 };
-// 等于同
-Function.prototype.unCurrying = function () {
-  var f = this;
-  return function () {
-    var args = arguments;
-    return f.apply(args[0], [].slice.call(args, 1));
-  }
-};
+// 等同于
+// Function.prototype.unCurrying = function () {
+//   var f = this;
+//   return function () {
+//     var args = arguments;
+//     return f.apply(args[0], [].slice.call(args, 1));
+//   }
+// };
 
 var push = Array.prototype.push.unCurrying(),
   obj = {};

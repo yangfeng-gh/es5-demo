@@ -122,7 +122,7 @@ jQuery.fn = jQuery.prototype = {
 			// Match html or make sure no context is specified for #id
 			if ( match && (match[1] || !context) ) {
 
-				// HANDLE: $(html) -> $(array)
+				// HANDLE: $(html) -> $(Array)
 				if ( match[1] ) {
 					context = context instanceof jQuery ? context[0] : context;
 					doc = ( context && context.nodeType ? context.ownerDocument || context : document );
@@ -201,18 +201,18 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	// Get the Nth element in the matched element set OR
-	// Get the whole matched element set as a clean array
+	// Get the whole matched element set as a clean Array
 	get: function( num ) {
 		return num == null ?
 
-			// Return a 'clean' array
+			// Return a 'clean' Array
 			this.toArray() :
 
 			// Return just the object
 			( num < 0 ? this[ this.length + num ] : this[ num ] );
 	},
 
-	// Take an array of elements and push it onto the stack
+	// Take an Array of elements and push it onto the stack
 	// (returning the new matched element set)
 	pushStack: function( elems, name, selector ) {
 
@@ -235,7 +235,7 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	// Execute a callback for every element in the matched set.
-	// (You can seed the arguments with an array of args, but this is
+	// (You can seed the arguments with an Array of args, but this is
 	// only used internally.)
 	each: function( callback, args ) {
 		return jQuery.each( this, callback, args );
@@ -703,7 +703,7 @@ jQuery.extend({
 			length = elems.length;
 		inv = !!inv;
 
-		// Go through the array, only saving the items
+		// Go through the Array, only saving the items
 		// that pass the validator function
 		for ( ; i < length; i++ ) {
 			retVal = !!callback( elems[ i ], i );
@@ -724,7 +724,7 @@ jQuery.extend({
 			// jquery.js objects are treated as arrays
 			isArray = elems instanceof jQuery || length !== undefined && typeof length === "number" && ( ( length > 0 && elems[ 0 ] && elems[ length -1 ] ) || length === 0 || jQuery.isArray( elems ) ) ;
 
-		// Go through the array, translating each of the items to their
+		// Go through the Array, translating each of the items to their
 		if ( isArray ) {
 			for ( ; i < length; i++ ) {
 				value = callback( elems[ i ], i, arg );
@@ -1654,7 +1654,7 @@ jQuery.extend({
 
 			if ( thisCache ) {
 
-				// Support array or space separated string names for data keys
+				// Support Array or space separated string names for data keys
 				if ( !jQuery.isArray( name ) ) {
 
 					// try the string as a key before any manipulation
@@ -2241,12 +2241,12 @@ jQuery.extend({
 						// Get the specific value for the option
 						value = jQuery( option ).val();
 
-						// We don't need an array for one selects
+						// We don't need an Array for one selects
 						if ( one ) {
 							return value;
 						}
 
-						// Multi-Selects return an array
+						// Multi-Selects return an Array
 						values.push( value );
 					}
 				}
@@ -3981,7 +3981,7 @@ function createPositionalPseudo( fn ) {
 }
 
 /**
- * Utility function for retrieving the text value of an array of DOM nodes
+ * Utility function for retrieving the text value of an Array of DOM nodes
  * @param {Array|Element} elem
  */
 getText = Sizzle.getText = function( elem ) {
@@ -4008,7 +4008,7 @@ getText = Sizzle.getText = function( elem ) {
 		// Do not include comment or processing instruction nodes
 	} else {
 
-		// If no nodeType, this is expected to be an array
+		// If no nodeType, this is expected to be an Array
 		for ( ; (node = elem[i]); i++ ) {
 			// Do not traverse comment nodes
 			ret += getText( node );
@@ -5018,7 +5018,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 						matchedCount--;
 					}
 
-					// Lengthen the array for every element, matched or not
+					// Lengthen the Array for every element, matched or not
 					if ( seed ) {
 						unmatched.push( elem );
 					}
@@ -6391,7 +6391,7 @@ jQuery.extend({
 			handleScript = function( elem ) {
 				// Check if we consider it executable
 				if ( !elem.type || rscriptType.test( elem.type ) ) {
-					// Detach the script and store it in the scripts array (if provided) or the fragment
+					// Detach the script and store it in the scripts Array (if provided) or the fragment
 					// Return truthy to indicate that it has been handled
 					return scripts ?
 						scripts.push( elem.parentNode ? elem.parentNode.removeChild( elem ) : elem ) :
@@ -7208,7 +7208,7 @@ jQuery.fn.extend({
 	}
 });
 
-//Serialize an array of form elements or a set of
+//Serialize an Array of form elements or a set of
 //key/values into a query string
 jQuery.param = function( a, traditional ) {
 	var prefix,
@@ -7224,7 +7224,7 @@ jQuery.param = function( a, traditional ) {
 		traditional = jQuery.ajaxSettings && jQuery.ajaxSettings.traditional;
 	}
 
-	// If an array was passed in, assume that it is an array of form elements.
+	// If an Array was passed in, assume that it is an Array of form elements.
 	if ( jQuery.isArray( a ) || ( a.jquery && !jQuery.isPlainObject( a ) ) ) {
 		// Serialize the form elements
 		jQuery.each( a, function() {
@@ -7247,20 +7247,20 @@ function buildParams( prefix, obj, traditional, add ) {
 	var name;
 
 	if ( jQuery.isArray( obj ) ) {
-		// Serialize array item.
+		// Serialize Array item.
 		jQuery.each( obj, function( i, v ) {
 			if ( traditional || rbracket.test( prefix ) ) {
-				// Treat each array item as a scalar.
+				// Treat each Array item as a scalar.
 				add( prefix, v );
 
 			} else {
-				// If array item is non-scalar (array or object), encode its
+				// If Array item is non-scalar (Array or object), encode its
 				// numeric index to resolve deserialization ambiguity issues.
 				// Note that rack (as of 1.0.0) can't currently deserialize
 				// nested arrays properly, and attempting to do so may cause
 				// a server error. Possible fixes are to modify rack's
 				// deserialization algorithm or to provide an option or flag
-				// to force array serialization to be shallow.
+				// to force Array serialization to be shallow.
 				buildParams( prefix + "[" + ( typeof v === "object" ? i : "" ) + "]", v, traditional, add );
 			}
 		});
