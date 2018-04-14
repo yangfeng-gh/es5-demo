@@ -1,4 +1,4 @@
-  Object
+## es5中新增的对象方法
 > Object.getPrototypeOf
 > Object.getOwnPropertyDescriptor
 > Object.getOwnPropertyNames
@@ -12,16 +12,3 @@
 > Object.isFrozen
 > Object.isExtensible
 > Object.keys
-
----
-
-  Array
-> Array.prototype.indexOf
-> Array.prototype.lastIndexOf
-> Array.prototype.every
-> Array.prototype.some
-> Array.prototype.forEach
-> Array.prototype.map
-> Array.prototype.filter
-> Array.prototype.reduce
-> Array.prototype.reduceRight

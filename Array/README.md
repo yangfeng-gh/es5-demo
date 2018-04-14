@@ -1,0 +1,10 @@
+## es5中新增的数组方法
+> Array.prototype.indexOf
+> Array.prototype.lastIndexOf
+> Array.prototype.every
+> Array.prototype.some
+> Array.prototype.forEach
+> Array.prototype.map
+> Array.prototype.filter
+> Array.prototype.reduce
+> Array.prototype.reduceRight

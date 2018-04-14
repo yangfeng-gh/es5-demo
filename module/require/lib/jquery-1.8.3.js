@@ -30,7 +30,7 @@ var
 	// Map over the $ in case of overwrite
 	_$ = window.$,
 
-	// Save a reference to some core methods
+	// Save a reference to some core 新增方法
 	core_push = Array.prototype.push,
 	core_slice = Array.prototype.slice,
 	core_indexOf = Array.prototype.indexOf,
@@ -412,7 +412,7 @@ jQuery.extend({
 	},
 
 	// See test/unit/core.js for details concerning isFunction.
-	// Since version 1.3, DOM methods and functions like alert
+	// Since version 1.3, DOM 新增方法 and functions like alert
 	// aren't supported. They return false on IE (#2968).
 	isFunction: function( obj ) {
 		return jQuery.type(obj) === "function";
@@ -1153,7 +1153,7 @@ jQuery.extend({
 		// Keep pipe for back-compat
 		promise.pipe = promise.then;
 
-		// Add list-specific methods
+		// Add list-specific 新增方法
 		jQuery.each( tuples, function( i, tuple ) {
 			var list = tuple[ 2 ],
 				stateString = tuple[ 3 ];
@@ -5355,7 +5355,7 @@ var runtil = /Until$/,
 	rparentsprev = /^(?:parents|prev(?:Until|All))/,
 	isSimple = /^.[^:#\[\.,]*$/,
 	rneedsContext = jQuery.expr.match.needsContext,
-	// methods guaranteed to produce a unique set when starting from a unique set
+	// 新增方法 guaranteed to produce a unique set when starting from a unique set
 	guaranteedUnique = {
 		children: true,
 		contents: true,
@@ -6245,7 +6245,7 @@ jQuery.extend({
 			// IE copies events bound via attachEvent when using cloneNode.
 			// Calling detachEvent on the clone will also remove the events
 			// from the original. In order to get around this, we use some
-			// proprietary methods to clear the events. Thanks to MooTools
+			// proprietary 新增方法 to clear the events. Thanks to MooTools
 			// guys for this hotness.
 
 			cloneFixAttributes( elem, clone );
@@ -9375,7 +9375,7 @@ jQuery.fn.extend({
 });
 
 
-// Create scrollLeft and scrollTop methods
+// Create scrollLeft and scrollTop 新增方法
 jQuery.each( {scrollLeft: "pageXOffset", scrollTop: "pageYOffset"}, function( method, prop ) {
 	var top = /Y/.test( prop );
 
@@ -9409,7 +9409,7 @@ function getWindow( elem ) {
 			elem.defaultView || elem.parentWindow :
 			false;
 }
-// Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
+// Create innerHeight, innerWidth, height, width, outerHeight and outerWidth 新增方法
 jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 	jQuery.each( { padding: "inner" + name, content: type, "": "outer" + name }, function( defaultExtra, funcName ) {
 		// margin is only for outerHeight, outerWidth
