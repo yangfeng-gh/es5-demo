@@ -10,16 +10,16 @@ o.print = function(obj) {
     console.log(JSON.stringify(obj));
     obj.up.callbackup();
     obj.down.callbackdown();
-}
+};
 
 o.print({
     up: {
-        callbackup() {
+        callbackup: function() {
             upCb(this);
         }
     },
     down: {
-        callbackdown() {
+        callbackdown: function() {
             downCb(this);
         }
     }

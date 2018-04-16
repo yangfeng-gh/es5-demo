@@ -3,7 +3,7 @@
  */
 
 var person = new Object();
-person.name = 'yvan';
+person.name = 'bill';
 person.age = 19;
 person.job = 'Software Engineer';
 

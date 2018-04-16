@@ -1,5 +1,4 @@
 function Person() {
-
 }
 
 Person.prototype.name = 'Nicholas';
