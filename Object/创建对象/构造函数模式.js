@@ -13,7 +13,7 @@ function Person(name, age, job) {
   this.sayName = function () {
     console.log(this.name);
   }
-  // 等价于 this.sayName = new Function("console.log(this.name)")
+  // 相当于 this.sayName = new Function("console.log(this.name)")
 }
 
 /*
@@ -44,3 +44,23 @@ var o = new Object();
 Person.call(o, 'Kristen', 25, 'Nurse');
 o.sayName();
 
+/*
+构造函数的问题（每个方法都要在每个实例上重新创建一遍）解决方案一：
+在全局作用域内定义一个函数，在构造函数内部引用
+问题：
+1. 全局作用域内定义的函数只能被某个对象调用，让全局作用域有点名不符实
+2. 破坏了自定义类型的封装性
+ */
+function sayName() {
+  console.log(this.name)
+}
+
+function People(name, age, job) {
+  this.name = name;
+  this.age = job;
+  this.job = job;
+  this.sayName = sayName;
+}
+
+var people = new People('linux torvalds', 30, 'engineer');
+people.sayName();
