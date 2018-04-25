@@ -17,13 +17,22 @@
   }
 
   var result = constructFunction()(); // => "global"
-  console.log(result); // 由于js变量的作用域是在编译时决定而不是运行时，而Function()是在运行时动态地创建并编译函数。
-  // 因此编译时Funtion()并不存在，而运行时不确定决定该函数的作用域，所以动态创建的函数只会搜索全局和函数体内的变量
+  // 由于js变量的作用域是在编译时决定而不是运行时，而Function()是在运行时动态地创建并编译函数。
+  // 因此编译时Function()并不存在，而运行时不确定决定该函数的作用域，所以动态创建的函数只会搜索全局和函数体内的变量
+  var fragment = document.createDocumentFragment();
+  var elem = document.createElement('p');
+  elem.innerText = result;
+  fragment.appendChild(elem);
 
   var f = new Function("x", "y", "return x*y;");
-  var f2 = new Function("console.log('没有参数函数')");
-  console.log(f(2, 3));
+  elem = document.createElement('p');
+  elem.innerText = f(2, 3);
+  fragment.appendChild(elem);
+
+  var f2 = new Function("alert('没有参数函数')");
   f2();
+
+  document.body.appendChild(fragment);
 </script>
 </body>
 </html>
