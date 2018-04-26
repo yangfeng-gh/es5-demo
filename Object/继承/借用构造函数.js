@@ -1,19 +1,19 @@
-function SuperType() {
-  this.property = 'super';
-}
+/**
+ * 借用构造函数：在子类型构造函数中调用超类型构造函数
+ */
 
-SuperType.prototype.getSuperValue = function () {
-  return this.property;
-};
+function SuperType() {
+  this.colors = ['red', 'green', 'blue'];
+}
 
 function SubType() {
-  this.subproperty = 'sub';
+  //继承SuperType
+  SuperType.call(this);
 }
 
-//继承了SuperType
-SubType.prototype = new SuperType();
-SubType.prototype.getSubValue = function () {
-  return this.subproperty;
-};
-var instance = new SubType();
-console.log(instance.getSuperValue());
+var instance1 = new SubType();
+instance1.colors.push('black');
+console.log(instance1.colors); //[ 'red', 'green', 'blue', 'black' ]
+
+var instance2 = new SubType();
+console.log(instance2.colors); //[ 'red', 'green', 'blue' ]
