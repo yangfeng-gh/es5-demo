@@ -4187,7 +4187,7 @@ Expr = Sizzle.selectors = {
 				}
 
 				// numeric x and y parameters for Expr.filter.CHILD
-				// remember that false/true cast respectively to 0/1
+				// remember that false/true methods respectively to 0/1
 				match[3] = +( match[3] ? match[4] + (match[5] || 1) : 2 * ( match[2] === "even" || match[2] === "odd" ) );
 				match[4] = +( ( match[6] + match[7] ) || match[2] === "odd" );
 
@@ -4311,7 +4311,7 @@ Expr = Sizzle.selectors = {
 						}
 					}
 
-					// Incorporate the offset (or cast to NaN), then check against cycle size
+					// Incorporate the offset (or methods to NaN), then check against cycle size
 					diff -= last;
 					return diff === first || ( diff % first === 0 && diff / first >= 0 );
 				};
