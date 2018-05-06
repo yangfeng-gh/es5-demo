@@ -2,7 +2,7 @@
  * 借助原型可以基于已有的对象创建新对象，同时还不必因此创建自定义类型
  * 封装创建对象过程的函数
  * @param 原型对象
- * @returns 新创建的对象
+ * @returns F
  */
 function createObj(o) {
   function F() {}
