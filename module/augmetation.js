@@ -6,6 +6,9 @@
  *
  * 实质：
  * 放大模式实质上就是给已有的模块添加方法
+ *
+ * mod是形参，module1是实参
+ * 为module1添加desc方法，然后返回新的module1模块
  */
 var module1 = (function (mod) {
   mod.desc = function () {
@@ -14,8 +17,3 @@ var module1 = (function (mod) {
 
   return mod;
 })(module1);
-
-// mod是形参，module1是实参
-// 为module1添加desc方法，然后返回新的module1模块
-
-
