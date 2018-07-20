@@ -5,6 +5,7 @@
  *
  * 解决方案：
  * 宽放大模式（Loose augmentation）
+ * 与放大模式不同的是，IIFE函数的实参为空时，程序不会出错
  */
 var module1 = (function (mod) {
   mod.desc = function () {
@@ -14,7 +15,3 @@ var module1 = (function (mod) {
 
   return mod;
 })(window.module1 || {});
-
-// 与放大模式不同的是，IIFE函数的实参为空时，程序不会出错
-module1.desc();
-module1.print();
