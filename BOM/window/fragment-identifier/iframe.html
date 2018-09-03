@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iframe</title>
+</head>
+
+<body>
+    <h3 id="myH3">iframe test</h3>
+    <iframe id="myIframe" src="iframe-child.html" frameborder="0" width="800" height="300"></iframe>
+    <div id="p1">
+        <p>片段标识符（fragment identifier）指的是，URL的#号后面的部分，比如http://example.com/x.html#fragment的#fragment。</p>
+        <p>如果只是改变片段标识符，页面不会重新刷新。</p>
+        <p>父窗口可以把信息，写入子窗口的片段标识符。</p>
+    </div>
+    <div id="p2"></div>
+    <button type="button" onclick="fragmentIdentifier()">改变片段标识符（iframe子窗口的内容）</button>
+
+    <script>
+        window.onload = function() {
+            var h3 = document.getElementById('myH3');
+            // console.log('h3: ' + h3.nodeName + ', ' + h3.nodeType);
+
+            // var iframe = document.getElementById("myIFrame").contentWindow.document;
+            // console.log('iframe: ' + iframe);
+        }
+        function fragmentIdentifier() {
+            var p1 = document.getElementById('p1').innerHTML;
+            var myIframe = document.getElementById('myIframe');
+            var target = "http://localhost/cors/fragment-identifier/iframe.html";
+            var hash = Date.now();
+            myIframe.src = target + '#' + hash;
+        }
+    </script>
+</body>
+
+</html>

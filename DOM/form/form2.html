@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function checkform(f) {
+            var uname = f.username;
+            var pwd = f.password;
+            if (uname.value.length < 4) {
+                alert('用户长度必须大于4');
+                return false;
+            }
+            if (pwd.value.length < 6) {
+                alert('用户密码必须大于 6位');
+                return false;
+            }
+            return true;
+        }
+
+        window.onload = function () {
+            var f1 = document.forms[0];
+            var f2 = document.f2;
+            var f3 = document.forms['f3'];
+            console.log(f1.id + "\n" + f2.id + "\n" + f3.id);
+        }
+    </script>
+</head>
+<body>
+<form id="f1" method="post" action="http://www.baidu.com" onsubmit="return checkform(this);">
+    <input name="username" value=""/></br>
+    <input name="password" value=""/></br>
+    <input type="submit" value="提交"/> 
+</form>
+
+<form id="f2" name="f2" value="f1"></form>
+<form id="f3" value="f2"></form>
+</body>
+</html>

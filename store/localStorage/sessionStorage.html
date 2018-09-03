@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localStorage</title>
+</head>
+
+<body>
+    <input type="text" name="" value="" id="field">
+    <script type="text/javascript">
+        // 获取到我们要循环保存的文本域
+        var field = document.getElementById("field");
+
+        // 查看是否有一个自动保存的值
+        // (只在浏览器被意外刷新时)
+        if (sessionStorage.getItem("autosave")) {
+            // 恢复文本域中的内容
+            field.value = sessionStorage.getItem("autosave");
+        }
+
+        // 每隔一秒检查文本域中的内容
+        setInterval(function() {
+            // 并将文本域的值保存到session storage对象中
+            sessionStorage.setItem("autosave", field.value);
+        }, 1000);
+    </script>
+</body>
+
+</html>

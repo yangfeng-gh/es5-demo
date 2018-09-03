@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>document.open(mimetype,replace)</title>
+</head>
+<body>
+    mimetype 可选。规定正在写的文档的类型。默认值是 "text/html"。<br>
+    replace	可选。当此参数设置后，可引起新文档从父文档继承历史条目。  <br>
+    <script type="text/javascript">
+        function createNewDoc() {
+            var newDoc = document.open("text/html", "replace");
+            var txt = "<html><body>学习 DOM 非常有趣！</body></html>";
+            newDoc.write(txt);
+            newDoc.close();
+        }
+    </script>
+    <input type="button" value="打开并写入一个新文档" onclick="createNewDoc()">
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>$.map测试</title>
+    <script src="../lib/jquery/3rd/jquery-1.11.3.js" type="text/javascript"></script>
+</head>
+<body>
+<input type="checkbox" id="1"/>
+<input type="checkbox" id="2"/>
+<input type="checkbox" id="3"/>
+<input type="checkbox" id="4"/>
+<input type="checkbox" id="5"/>
+
+<script>
+    $.map([10,11,12], function (value, index) {
+        console.log(value);
+        console.log(index);
+    });
+</script>
+</body>
+</html>

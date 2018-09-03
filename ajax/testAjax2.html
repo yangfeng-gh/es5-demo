@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test ajax2</title>
+</head>
+<body>
+
+<div>
+  <form action="">
+    <input type="text" value="testAjax2" id="input">
+    <textarea name="status" id="status" cols="30" rows="10"></textarea>
+    <textarea name="headers" id="headers" cols="30" rows="10"></textarea>
+    <textarea name="data" id="data" cols="30" rows="10"></textarea>
+  </form>
+</div>
+
+<script>
+  /* eslint-disable */
+  //1.获取XMLHttpRequest
+  var xmlHttp;
+  function getXmlHttpRequest() {
+    var xmlHttp = null;
+    try {
+      // Firefox, Opera 8.0+, Safari
+      xmlHttp = new XMLHttpRequest();
+    } catch (e) {
+      // Internet Explorer
+      try {
+        // IE>6
+        xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+      } catch (e) {
+        // code for IE6, IE5
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+    }
+    return xmlHttp;
+  }
+  xmlHttp = getXmlHttpRequest();
+  //2.给XMLHttpRequest对象绑定一个回调函数
+  xmlHttp.onreadystatechange = function () {
+    //5.处理服务器的响应
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+      //将服务器响应回的数据输出
+      var headers = xmlHttp.getAllResponseHeaders();
+      document.getElementById("status").innerHTML=(xmlHttp.status);
+      document.getElementById("headers").innerHTML=(headers);
+      document.getElementById("data").innerHTML=(xmlHttp.responseText);
+    }
+    //Q：为什么先判断readystate后判断status
+    //A：status是服务器返回的 HTTP 状态代码，当readyState<3的时候读取这一属性会导致一个异常。
+  };
+  //3.open 设置请求方式及请求的ur
+  //3.1请求方式是get,如果要带请求参数可以直接拼接在url中。
+  var msg = document.getElementById("input").value;
+  xmlHttp.open("GET", "https://registry.npm.taobao.org?msg="+ window.encodeURIComponent(msg, "utf-8"));
+  xmlHttp.send();
+
+  //3.2请求方式是post，参数要写在send方法中
+  //xmlHttp.open("POST", "${pageContext.request.contextPath}/ajax2");
+  //xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+  //4.向服务器发请求
+  //xmlHttp.send("msg=" + msg);
+</script>
+</body>
+</html>

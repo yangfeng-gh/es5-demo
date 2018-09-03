@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localStorage-main</title>
+</head>
+
+<body>
+    <iframe src="minor.html"></iframe>
+    <script type="text/javascript">
+        function sendMessage() {
+            var w = document.getElementsByTagName('iframe')[0].contentWindow;
+            var obj = {
+                name: 'Jack'
+            };
+            w.postMessage(JSON.stringify({
+                key: 'storage',
+                data: obj
+            }), 'http://localhost');
+        }
+    </script>
+    <button type="button" name="button" onclick="sendMessage()">sendMessage</button>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box,.wrap{
+            width: 100%;
+            clear: both;
+            background: #ccc;
+        }
+        .box a{
+            float: left;
+            width: 100px;
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            background: red;
+            color: #fff;
+            border-radius: 6px 6px 0 0;
+        }
+        .box .vb{
+            background: green;
+        }
+        .wrap > div{
+            display: none;
+        }
+        .wrap > .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a class="vb" href="">111</a>
+        <a href="">222</a>
+        <a href="">333</a>
+        <a href="">444</a>
+    </div>
+    <div class="wrap">
+        <div class="active">111111111</div>
+        <div>22222222222</div>
+        <div>33333333333333333</div>
+        <div>44444</div>
+    </div>
+</body>
+</html>

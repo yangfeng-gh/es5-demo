@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event对象</title>
+</head>
+<body>
+    <button type="button" onclick="submit(2, event)">按钮</button>
+    <script>
+        function submit(val, event) {
+            console.log("接收到的值是： ",val);
+            console.log("事件的目标对象是： ",event.target);
+        }
+    </script>
+</body>
+</html>

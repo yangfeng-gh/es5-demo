@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>方法借用</title>
+</head>
+<body>
+    <ul id="ul1">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script type="text/javascript">
+      onload = function() {
+        var ul1 = document.getElementById('ul1');
+        var lis = ul1.children;
+        Array.prototype.forEach.call(lis, function(item ,index) {
+          item.innerText = index;
+        })
+      }
+    </script>
+</body>
+</html>

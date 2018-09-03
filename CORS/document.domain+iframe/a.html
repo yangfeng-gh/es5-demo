@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>a.test.com/a.html</title>
+</head>
+<body>
+<h3>对于主域相同而子域不同的情况，可以通过设置document.domain的办法来解决</h3>
+<script>
+  document.domain = 'yf.com';
+  var iFrame = document.createElement('iframe');
+  iFrame.src = 'http://b.yf.com/b.html';
+  iFrame.style.display = 'none';
+  document.body.appendChild(iFrame);
+  iFrame.onload = function(){
+    var doc = iFrame.contentDocument || iFrame.contentWindow.document;
+    // 在这里操纵b.html
+    alert(doc.getElementsByTagName("p")[0].childNodes[0].nodeValue);
+  };
+</script>
+</body>
+</html>

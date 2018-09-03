@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Function</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // Example can be run directly in your JavaScript console
+
+        // Create a function that takes two arguments and returns the sum of those arguments
+        var adder = new Function('a', 'b', 'return a + b');
+
+        // Call the function
+        var result = adder(2, 6);
+        // > 8
+        console.log(result);
+
+        var x = 10;
+
+        function createFunction1() {
+            var x = 20;
+            return new Function('return x;'); // this |x| refers global |x|
+        }
+
+        function createFunction2() {
+            var x = 20;
+
+            function f() {
+                return x; // this |x| refers local |x| above
+            }
+            return f;
+        }
+
+        var f1 = createFunction1();
+        console.log('f1: ' + f1()); // 10
+        var f2 = createFunction2();
+        console.log('f2: ' + f2()); // 20
+        console.log('x: ' + x);
+    </script>
+</body>
+
+</html>

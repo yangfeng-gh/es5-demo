@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<p>b.html</p>
+<script>
+  //模拟一个简单的参数处理操作
+  switch(location.hash){
+    case '#paramdo':
+      callBack();
+      break;
+    case '#paramset':
+      //do something ...
+      break;
+  }
+
+  function callBack(){
+    try {
+      parent.location.hash = 'somedata';
+    } catch (e) {
+      // ie, chrome不允许修改不同源页面的hash,所以需要一个要修改页面的同源代理a2.html
+      var ifrproxy = document.createElement('iframe');
+      ifrproxy.style.display = 'none';
+      ifrproxy.src = 'http://a.yf.com/hash/a2.html#somedata2';
+      document.body.appendChild(ifrproxy);
+    }
+  }
+</script>
+</body>
+</html>

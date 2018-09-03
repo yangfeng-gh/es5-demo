@@ -1,11 +1,11 @@
-define("examples/hello/1.0.0/main-debug", [ "./spinning-debug", "jquery-debug" ], function(require) {
+define("examples/hello/1.0.0/main-debug", [ "./spinning-debug", "jQuery-debug" ], function(require) {
     var Spinning = require("./spinning-debug");
     var s = new Spinning("#container");
     s.render();
 });
 
-define("examples/hello/1.0.0/spinning-debug", [ "jquery-debug" ], function(require, exports, module) {
-    var $ = require("jquery-debug");
+define("examples/hello/1.0.0/spinning-debug", [ "jQuery-debug" ], function(require, exports, module) {
+    var $ = require("jQuery-debug");
     function Spinning(container) {
         this.container = $(container);
         this.icons = this.container.children();

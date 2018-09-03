@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>window-postMessage-parent</title>
+</head>
+
+<body>
+<script type="text/javascript">
+  var popup = window.open('http://localhost:63342/es3-demo/src/cors/h5.postMessage/child.html', 'child');
+
+  function sendMsg() {
+    popup.postMessage('Hello my child, I am parent!',
+      'http://localhost:63342/es3-demo/src/cors/h5.postMessage/child.html');
+  }
+
+  // element.addEventListener(event, function, useCapture)
+  // 指定事件是否在捕获或冒泡阶段执行
+  // true - 事件句柄在捕获阶段执行
+  // false- 默认。事件句柄在冒泡阶段执行
+  window.onload = function () {
+    window.name = 'parent';
+    window.addEventListener('message', receiveMessage, false);
+  }
+
+  function receiveMessage(event) {
+    console.log('发送消息的窗口: ' + event.source.name); //发送消息的窗口
+    console.log('消息发向的网址: ' + event.origin); //消息发向的网址
+    console.log('消息内容: ' + event.data); //消息内容
+    // if (event.origin !== 'http://localhost') return;
+    if (event.data === 'Nice to see you') {
+      event.source.postMessage('Hello again!!!', event.origin);
+    } else {
+      console.log(event.data);
+    }
+  }
+</script>
+<h3>parent window</h3>
+<button type="button" name="sendMsg" onclick="sendMsg()">send message</button>
+</body>
+
+</html>

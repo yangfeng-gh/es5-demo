@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>addEventListener</title>
+</head>
+<body>
+addEventListener中的第三个参 数是useCapture, 一个bool类型。当为false时为冒泡获取(由里向外)，true为capture方式(由外向里)。
+<div id="id1"
+     style="width:200px; height:200px; position:absolute; top:100px; left:100px; background-color:blue; z-index:4">
+    <div id="id2"
+         style="width:100px; height:100px; position:absolute; top:20px; left:70px; background-color:green; z-index:1">
+    </div>
+</div>
+<script>
+    //冒泡获取(由里向外)
+    //document.getElementById('id1').addEventListener('click', function() { console.log('id1');}, false);
+    //document.getElementById('id2').addEventListener('click', function() { console.log('id2');}, false);
+
+    //capture方式(由外向里)
+    document.getElementById('id1').addEventListener('click', function() { console.log('id1');}, true);
+    document.getElementById('id2').addEventListener('click', function() { console.log('id2');}, true);
+</script>
+</body>
+</html>

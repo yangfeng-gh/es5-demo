@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jsonp-client</title>
+</head>
+<body>
+<div id="div1"></div>
+<button type="button" name="request" onclick="request()">跨域请求</button>
+
+<script type="text/javascript">
+  /**
+   * addScriptTag 网页通过添加一个<script>元素，向服务器请求JSON数据，这种做法不受同源政策限制；
+   * 服务器收到请求后，将数据放在一个指定名字的回调函数里传回来。
+   * @param {[String]} src [跨域请求url]
+   */
+  function addScriptTag(src) {
+    var script = document.createElement('script');
+    script.setAttribute('type', 'text/javascript');
+    script.src = src;
+    document.body.appendChild(script);
+  }
+
+  function request() {
+    addScriptTag('http://localhost:8070/cors-demo/jsonp?callback=foo');
+  }
+
+  function foo(data) {
+    var div1 = document.getElementById('div1');
+
+    var fragment = document.createDocumentFragment();
+    var textarea = document.createElement('textarea');
+    textarea.style.cssText = "width: 500px; height: 200px";
+    textarea.value = JSON.stringify(data);
+    fragment.appendChild(textarea);
+
+    var result = div1.getElementsByTagName('textarea');
+    if (result[0]) {
+      div1.replaceChild(fragment, result[0]);
+    } else {
+      div1.appendChild(fragment);
+    }
+  }
+
+  window.onload = function () {
+    // addScriptTag('http://localhost:8880/cors-demo/jsonp?callback=foo');
+  }
+</script>
+</body>
+</html>

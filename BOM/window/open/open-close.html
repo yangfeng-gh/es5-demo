@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>moveBy()</title>
+</head>
+
+<body>
+    方法 close() 将关闭有 window 指定的顶层浏览器窗口。某个窗口可以通过调用 self.close() 或只调用 close() 来关闭其自身。<br>
+    只有通过 JavaScript 代码打开的窗口才能够由 JavaScript 代码关闭。这阻止了恶意的脚本终止用户的浏览器。
+    window.open(URL,name,features,replace)
+    <script type="text/javascript">
+        function openWindow() {
+            myWindow=window.open('','','width=500,height=300')
+            myWindow.document.write('<input type="button" value="close window" onclick="window.close()" />');
+            myWindow.focus()
+        }
+
+    </script>
+
+    <input type="button" value="open window" onclick="openWindow()" />
+
+</body>
+
+</html>

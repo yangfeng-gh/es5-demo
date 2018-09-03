@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>quarter</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // function resizes the window to take up one quarter
+        // of the available screen.
+        function quarter() {
+            window.resizeTo(
+                window.screen.availWidth / 2, window.screen.availHeight / 2
+            );
+        }
+
+        function openWindow() {
+            var childWindow = open('','','width=500,height=300');
+            var script = 'childWindow' +
+            '<script type="text/javascript">' +
+            'function quarter() {' +
+            'window.resizeTo(' +
+            'window.screen.availWidth / 2, window.screen.availHeight / 2' +
+            ');' +
+            '}' +
+            '<\/script>' +
+            '<input type="button" value="quarter" onclick="quarter()" />';
+            childWindow.document.write(script);
+            childWindow.focus();
+        }
+    </script>
+    
+    <h3>resizeTo, resizeBy都存在以下问题：</h3>
+    <ul>
+        <li>Since Firefox 7, it's no longer possible for a web site to change the default size of a window in a browser, according to the following rules:</li>
+        <li>You can't resize a window or tab that wasn’t created by window.open.</li>
+        <li>You can't resize a window or tab when it’s in a window with more than one tab.</li>
+    </ul>
+    <button type="button" onclick="openWindow()">打开新窗口</button>
+</body>
+
+</html>

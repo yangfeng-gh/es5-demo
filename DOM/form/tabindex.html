@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8"/>
+    <title>按下Enter焦点移至下一个控件的实现js代码</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var list = new Array();
+            for (var i = 5; i < document.all.length; i++) {
+                if (document.all[i].type == "text" || document.all[i].tagName == "SELECT")
+                    list.push(i);
+            }
+
+            for (var i = 0; i < list.length - 1; i++) {
+                document.all[list[i]].setAttribute("nextFocusIndex", list[i + 1]);
+                document.all[list[i]].onkeydown = JumpToNext;
+            }
+            for (var i = list.length - 1; i < document.all.length; i++) {
+                if (document.all[i].type == "button") {
+                    document.all[list[list.length - 1]].setAttribute("nextFocusIndex", i);
+                    document.all[list[list.length - 1]].onkeydown = JumpToNext;
+                    break;
+                }
+            }
+            document.all[list[0]].focus();
+        }
+        function JumpToNext() {
+            if (event.keyCode == 13) {
+                var nextFocusIndex = this.getAttribute("nextFocusIndex");
+                document.all[nextFocusIndex].focus();
+            }
+        }
+    </script>
+</head>
+<body>
+<input id="A" name="A" type="text"/>
+<input id="B" name="B" type="text"/>
+<input id="C" name="C" type="text"/>
+<input id="D" name="D" type="text"/>
+<input id="E" name="E" type="text"/>
+<select id="S1" name="S1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+</select>
+<select id="S2" name="S2">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+</select>
+</body>
+</html>

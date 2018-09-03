@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>引用类型值的原型属性会被所有实例共享</title>
+    <script type="text/javascript">
+        function Parent() {
+            this.pValues = ['xiaomin', 'yvan', 'xiaoqian', 'jialiang', 'qintent'];
+            this.name = 'feilding'
+        }
+
+        function Child() {
+            this.cValues = ['小敏','杨峰','小倩','家良','秦腾'];
+        }
+
+        Child.prototype = new Parent();
+        var child = new Child();
+        child.name = '詹姆斯·高斯林'
+        child.pValues.push('liangliang');
+        var child2 = new Child();
+        // child2读取到了child设置的数据，即child2和child共享原型中的引用属性
+        console.log(`child.pValues:  ${JSON.stringify(child.pValues)}`);
+        console.log(`child2.pValues: ${JSON.stringify(child2.pValues)}`);
+        console.log(`child.name: ${JSON.stringify(child.name)}`);
+        console.log(`child2.name:  ${JSON.stringify(child2.name)}`);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

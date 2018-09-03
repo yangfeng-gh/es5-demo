@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>keydown</title>
+    <script>
+        function handleKeyDown(event) {
+            console.log(`keyCode: ${event.keyCode}`);
+            console.log(`charCode: ${event.charCode}`);
+            console.log(`which: ${event.which}`);
+        }
+        function handleKeyPress(event) {
+            console.log(`keyCode: ${event.keyCode}`);
+            console.log(`charCode: ${event.charCode}`);
+            console.log(`which: ${event.which}`);
+        }
+        function handleKeyUp(event) {
+            console.log(`keyCode: ${event.keyCode}`);
+            console.log(`charCode: ${event.charCode}`);
+            console.log(`which: ${event.which}`);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" onkeydown="handleKeyDown(event)">
+    <input type="text" onkeypress="handleKeyPress(event)">
+    <input type="text" onkeyup="handleKeyUp(event)">
+</body>
+</html>

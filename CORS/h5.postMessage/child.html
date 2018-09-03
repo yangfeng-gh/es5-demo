@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>window-postMessage-child</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function sendMsg() {
+            window.opener.postMessage('Nice to see you',
+              'http://localhost:63342/trial/examples/cors/h5.postMessage/parent.html');
+        }
+
+        window.onload = function() {
+            window.addEventListener('message', function(e) {
+                console.log('发送消息的窗口: ' + e.source.name); //发送消息的窗口
+                console.log('消息发向的网址: ' + e.origin); //消息发向的网址
+                console.log('消息内容: ' + e.data); //消息内容
+            }, false);
+        }
+    </script>
+    <h3>child window</h3>
+    <button type="button" name="sendMsg" onclick="sendMsg()">send message</button>
+</body>
+
+</html>

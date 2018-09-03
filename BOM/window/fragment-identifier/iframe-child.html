@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iframe-child</title>
+</head>
+
+<body>
+    <p>iframe-child</p>
+    <button type="button" onclick="chagneParent()">子窗口也可以改变父窗口的片段标识符</button>
+    <script>
+        // var parent = window.parent.document.body;
+        // console.log(parent);
+        window.onhashchange = function () {
+            var message = window.location.hash;
+            alert(message);
+        }
+
+        function chagneParent() {
+            // 子窗口也可以改变父窗口的片段标识符。
+            var target = 'http://localhost/cors/fragment-identifier/iframe.html';
+            var hash = Date.now();
+            parent.location.href = target + '#' + hash;
+        }
+    </script>
+</body>
+
+</html>

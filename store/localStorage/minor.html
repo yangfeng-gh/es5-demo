@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localStorage-minor</title>
+</head>
+
+<body>
+    <h3>minor</h3>
+    <script type="text/javascript">
+        window.onmessage = function(e) {
+            if (e.origin !== 'http://localhost') {
+                return;
+            }
+            var payload = JSON.parse(e.data);
+            localStorage.setItem(payload.key, JSON.stringify(payload.data));
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>appendChild测试</title>
+    <script src="../lib/jquery/3rd/jquery-1.11.3.js" type="text/javascript"></script>
+</head>
+<body>
+<script type="text/javascript">
+    function debug(msg) {
+        var log = document.getElementById('debugLog');
+        if (!log) {
+            log = document.createElement('div');
+            log.id = 'debugLog';
+            log.innerHTML = '<h1>debug log</h1>';
+            document.body.appendChild(log);
+        }
+        var pre = document.createElement('pre');
+        var text = document.createTextNode(msg);
+        pre.appendChild(text);
+        log.appendChild(pre);
+    }
+    debug('<span style="color:red">我是消息</span>');
+</script>
+
+</body>
+</html>

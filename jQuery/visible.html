@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>visable hidden</title>
+    <script src="../../lib/js/jquery-1.10.2.js" type="text/javascript"></script>
+</head>
+<style type="text/css">
+
+    .test {
+        color: red;
+    }
+
+</style>
+<body>
+<div>111111111111111111</div>
+<input type="button" value="显示隐藏"/>
+<!--<script>
+    $domEle = $("<span>222222222222222</span><br/>");
+    $("div").after($domEle);
+    $(":button").click(function () {
+        if ($domEle.is(":visible")) {
+            $domEle.hide();
+        } else {
+            $domEle.show();
+        }
+    });
+
+</script>-->
+
+<script>
+    $(function () {
+        $(":button").click(function () {
+            if ($("div").next("span").length === 0) {
+                $domEle = $("<span></span>");
+                $("div").after($domEle);
+                $("div").next("span").addClass("test");
+                $("div").next("span").text("22222222222222222");
+            }
+        });
+
+
+    });
+</script>
+</body>
+</html>

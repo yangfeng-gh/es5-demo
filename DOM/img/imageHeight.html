@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取图片的尺寸</title>
+</head>
+
+<body>
+    <div>
+        <img src="D:\upload\cors\0a287b3e-d6d8-4a6e-90f0-41b41e4eaa84.jpg" alt="">
+    </div>
+    <script type="text/javascript">
+        window.onload = function() {
+            var img = new Image();
+            img.src = "D:\\upload\\cors\\0a287b3e-d6d8-4a6e-90f0-41b41e4eaa84.jpg";
+            if (img.complete) {
+                console.log(img.height);
+            }
+        }
+    </script>
+</body>
+
+</html>

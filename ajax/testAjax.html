@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  /* eslint-disable */
+  function ajaxFunction() {
+    var xmlHttp;
+    try {
+      // Firefox, Opera 8.0+, Safari
+      xmlHttp = new XMLHttpRequest();
+    }
+    catch (e) {
+      // Internet Explorer
+      try {
+        xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+      }
+      catch (e) {
+        try {
+          xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        catch (e) {
+          alert("您的浏览器不支持AJAX！");
+          return false;
+        }
+      }
+    }
+  }
+</script>
+
+<form name="myForm">
+  用户: <input type="text" name="username"/>
+  时间: <input type="text" name="time"/>
+</form>
+</body>
+</html>

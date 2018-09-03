@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  //因为parent.parent和自身属于同一个域，所以可以改变其location.hash的值
+  console.log('a2.html: ' + self.location.hash)
+  parent.parent.location.hash = self.location.hash.substring(1);
+</script>
+</body>
+</html>

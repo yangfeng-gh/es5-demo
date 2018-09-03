@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>passive 的事件监听器</title>
+</head>
+
+<body>
+    <p>2016年底DOM规范做了修订，addEventListener()第三个参数可以是对象了，也就是说第三个参数可以是Boolean和Object</p>
+    <p>目前option对象可用的属性有3个</p>
+    <pre>
+        addEventListener(type, listener, {
+            capture: false,
+            passive: false,
+            once: false
+        })
+    </pre>
+    <p>passive监听器的诞生主要是为了解决滚动或缩放页面时的卡顿问题</p>
+    <p>因为浏览器必须等监听器执行完毕才会执行默认行为，而监听器的执行是要耗时的</p>
+    <p>而且80%的滚动事件监听器是不会阻止默认行为的，也就是说大部分情况下浏览器是白等了</p>
+    <p>passive监听器不会阻止浏览器的默认行为，可以在两个线程中同时执行监听器和默认行为，从而使得浏览器滚动和缩放更顺畅</p>
+    <h3>例证：</h3>
+    <script>
+    let event = new Event("foo", { // 创建一个 type 为 foo 的事件对象，可以被阻止默认行为
+        "cancelable": true
+    })
+
+    document.addEventListener("foo", function(event) { // 在 document 上绑定 foo 事件的监听函数
+        console.log(event.defaultPrevented) // false
+        event.preventDefault()
+        console.log(event.defaultPrevented) // 还是 false，preventDefault() 无效
+    }, {
+        passive: true
+    })
+
+    document.dispatchEvent(event) // 派发自定义事件
+    </script>
+</body>
+
+</html>

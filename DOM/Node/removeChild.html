@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Node.removeChild()</title>
+</head>
+<body>
+<!--示例HTML代码-->
+<div id="top" align="center">
+  <div id="nested">示例HTML代码</div>
+</div>
+<button type="button" onclick="handler1()">先定位父节点,然后删除其子节点</button>
+<button type="button" onclick="handler2()">无须定位父节点,通过parentNode属性直接删除自身</button>
+<button type="button" onclick="handler3()">移除一个元素节点的所有子节点</button>
+
+<script>
+  // 先定位父节点,然后删除其子节点
+  function handler1() {
+    var d = document.getElementById("top");
+    var d_nested = document.getElementById("nested");
+    var throwawayNode = d.removeChild(d_nested);
+    console.log(throwawayNode)
+  }
+
+  // 无须定位父节点,通过parentNode属性直接删除自身
+  function handler2() {
+    var node = document.getElementById("nested");
+    if (node.parentNode) {
+      node.parentNode.removeChild(node);
+    }
+  }
+
+  // 移除一个元素节点的所有子节点
+  function handler3() {
+    var element = document.getElementById("top");
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+  }
+</script>
+</body>
+</html>

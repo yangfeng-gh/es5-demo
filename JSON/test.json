@@ -1,0 +1,40 @@
+{
+  "categories": [
+    {
+      "id": 35,
+      "name": "速冻食品",
+      "createTime": 1505811258000,
+      "subCategory": {
+        "38": "速冻薯条",
+        "39": "速冻薯片",
+        "40": "速冻署丁",
+        "41": "速冻署泥"
+      },
+      "adminName": null,
+      "customerType": 2
+    },
+    {
+      "id": 36,
+      "name": "休闲食品",
+      "createTime": 1505811268000,
+      "subCategory": {
+        "42": "薯条",
+        "43": "薯片",
+        "44": "署丁",
+        "45": "署泥"
+      },
+      "adminName": null,
+      "customerType": 2
+    },
+    {
+      "id": 37,
+      "name": "农产品",
+      "createTime": 1505811279000,
+      "subCategory": {
+        "46": "农产品"
+      },
+      "adminName": null,
+      "customerType": 1
+    }
+  ]
+}
