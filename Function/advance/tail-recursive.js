@@ -28,6 +28,7 @@ console.log(tailFactorial(5, 1)); // 120
 function factorialWrapper(n) {
   return tailFactorial(n, 1);
 }
+console.log(factorialWrapper(5));
 
 // 解决方案二：柯里化
 function currying(fn, n) {

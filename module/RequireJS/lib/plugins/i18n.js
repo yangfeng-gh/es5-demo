@@ -67,7 +67,7 @@
     /**
      * Simple function to mix in properties from source into target,
      * but only if target does not already have a property of the same name.
-     * This is not robust in IE for transferring 新增方法 that match
+     * This is not robust in IE for transferring 静态方法 that match
      * Object.prototype names, but the uses of mixin here seem unlikely to
      * trigger a problem related to that.
      */

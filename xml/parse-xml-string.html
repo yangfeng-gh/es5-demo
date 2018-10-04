@@ -16,7 +16,7 @@
   txt = txt + "<body>Don't forget the meeting!</body>";
   txt = txt + '</note>';
 
-  var xmlDoc
+  var xmlDoc;
   if (window.DOMParser) {
     var parser = new DOMParser();
     xmlDoc = parser.parseFromString(txt, 'text/xml');

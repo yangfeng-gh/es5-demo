@@ -1,5 +1,5 @@
-/**
- * Created by yvan on 2016-07-28.
+/*
+
  */
 var o = Object.create({id: 1, name: 'tom'});
 o.age = 19;

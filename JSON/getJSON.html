@@ -4,25 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="../../lib/js/jquery-1.10.2.js" charset="utf-8"></script>
+  <script src="../utils/js/jquery-1.10.2.js" charset="utf-8"></script>
   <title>getJSON</title>
 </head>
 <body>
 <textarea name="json" rows="8" cols="80"></textarea>
 <button type="button" id="getJson">getJSON</button>
+<br>
 
 <script type="text/javascript">
-  /*global $*/
-  $('#getJson').click(function () {
-    $.getJSON('userinfo.json', function (json) {
-      $('[name="json"]').val(JSON.stringify(json))
-    })
-  })
-
   $(function () {
-    console.log('document.URL: ' + document.URL)
+    $('#getJson').click(function () {
+      $.getJSON('userinfo.json', function (json) {
+        $('[name="json"]').val(JSON.stringify(json))
+      })
+    });
+    var url = $('<div/>').text('document.URL: ' + document.URL);
+    $('[name="json"]').prepend(url)
   })
-
 </script>
 </body>
 </html>

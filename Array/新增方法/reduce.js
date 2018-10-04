@@ -1,9 +1,9 @@
-/**
- * array.reduce(callback[, initialValue])
- * callback函数接受4个参数：之前值、当前值、索引值以及数组本身。
- * initialValue参数可选，表示初始值。若指定，则当作最初使用的previous值；
- * 如果缺省，则使用数组的第一个元素作为previous初始值，同时current往后排一位，相比有initialValue值少一次迭代。
- */
+/*
+array.reduce(callback[, initialValue])
+callback函数接受4个参数：之前值、当前值、索引值以及数组本身。
+initialValue参数可选，表示初始值。若指定，则当作最初使用的previous值；
+如果缺省，则使用数组的第一个元素作为previous初始值，同时current往后排一位，相比有initialValue值少一次迭代。
+*/
 
 var sum = [1, 2, 3, 4].reduce(function (previous, current, index, array) {
     console.log('previous: %s, current: %s', previous, current);

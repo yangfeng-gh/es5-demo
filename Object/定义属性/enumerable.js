@@ -1,13 +1,20 @@
-var person = {};
-Object.defineProperty(person, 'name', {
-  value: 'Linus Torvalds' // 默认enumerable=false, 不能通过 for-in 循环返回属性
-});
+/*
+ enumerable定义了对象的属性是否可以在 for...in 循环和 Object.keys() 中被枚举。
+ */
 
-Object.defineProperty(person, 'age', {
-  enumerable: true, // 能通过 for-in 循环返回属性
-  value: 19
-});
+var o = {};
+Object.defineProperty(o, "a", { value : 1, enumerable:true });
+Object.defineProperty(o, "b", { value : 2, enumerable:false });
+Object.defineProperty(o, "c", { value : 3 }); // enumerable defaults to false
+o.d = 4; // 如果使用直接赋值的方式创建对象的属性，则这个属性的enumerable为true
 
-for (var p in person) {
-  console.log(person[p])
+for (var i in o) {
+  console.log(i);
 }
+// 打印 'a' 和 'd' (in undefined order)
+
+Object.keys(o); // ["a", "d"]
+
+o.propertyIsEnumerable('a'); // true
+o.propertyIsEnumerable('b'); // false
+o.propertyIsEnumerable('c'); // false

@@ -17,7 +17,7 @@ function bar2() {
   function foo2() {
     console.log('a=%d, b=%d', a, b);
   }
-  foo2(); // foo2定义在bar2内部，所以会在bar2先在bar2内部查找a,没有找到才会查找全局
+  foo2(); // foo2定义在bar2内部，所以会先在bar2内部查找a,没有找到才会查找全局
 }
 
 bar2(); // 3

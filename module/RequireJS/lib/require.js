@@ -1835,7 +1835,7 @@ var requirejs, require, define;
     //Create default context.
     req({});
 
-    //Exports some context-sensitive 新增方法 on global require.
+    //Exports some context-sensitive 静态方法 on global require.
     each([
         'toUrl',
         'undef',

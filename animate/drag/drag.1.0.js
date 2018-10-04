@@ -8,6 +8,7 @@ var params = {
 	currentY: 0,
 	flag: false
 };
+
 /**
  * [获取元素指定的css属性值]
  * @param  {[Element]} o   [目标元素]

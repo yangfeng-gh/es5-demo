@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标点符号正则表达式</title>
+  <script type="text/javascript" src="../../utils/js/jquery-1.10.2.js"></script>
+</head>
+<body>
+<input type="text" value="<abc&gt;" id="txt"/>
+<ul>
+  <li></li>
+</ul>
+<script>
+  var reg = /<[^<>]+>|<*/;
+  $('#txt').on('blur', function () {
+    var str = $('#txt').val();
+    console.log(str.match(reg));
+    $('li').text(str.match(reg));
+  });
+</script>
+</body>
+</html>
