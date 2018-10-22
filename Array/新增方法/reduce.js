@@ -23,13 +23,13 @@ var matrix = [
 
 // 二维数组扁平化
 var flatten = matrix.reduce(function (previous, current) {
+    console.log(previous, current);
     return previous.concat(current);
 });
 
 console.log(flatten); // [1, 2, 3, 4, 5, 6]
 
 // 兼容处理IE6-IE8：
-
 if (typeof Array.prototype.reduce != "function") {
     Array.prototype.reduce = function (callback, initialValue ) {
         var previous = initialValue, k = 0, length = this.length;

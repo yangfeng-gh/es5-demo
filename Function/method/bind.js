@@ -7,8 +7,8 @@ LateBloomer.prototype.bloom = function () {
   setTimeout(this.declare.bind(this), 1000);
 };
 
-/**
- * 以下写法不正确
+/*
+以下写法不正确
  */
 LateBloomer.prototype.bloom2 = function() {
   var that = this;

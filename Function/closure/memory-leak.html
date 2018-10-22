@@ -9,21 +9,25 @@
   <title>闭包的内存泄漏问题</title>
 </head>
 <body>
-  <div id="div1">div1</div>
+<p>由于IE9之前的版本对JavaScript对象和DOM对象使用不同的垃圾回收例程，导致闭包在IE的这些版本中存在内存泄漏问题。</p>
+<div id="div1">div1</div>
 
-  <script>
-    function assignHandler() {
-      var element = document.getElementById('div1');
-      var id = element.id;
-      element.onclick = function() {
-        alert(id);
-      }
-      element = null;
+<script>
+  // 如果闭包的作用域链中保存着一个HTML元素，该元素将无法被销毁。
+  // assignHandler函数执行完毕，其内部变量element不会被销毁，因为匿名函数中有对element的引用，
+  // 而匿名函数作为DOM对象的事件处理器会一直驻留在内存，因此匿名函数不会销毁，导致element占用的内存永远不会被回收。
+  function assignHandler() {
+    var element = document.getElementById('div1');
+    var id = element.id;
+    element.onclick = function () {
+      alert(id);
     }
+    element = null;
+  }
 
-    window.onload = function() {
-      assignHandler();
-    }
-  </script>
+  window.onload = function () {
+    assignHandler();
+  }
+</script>
 </body>
 </html>
