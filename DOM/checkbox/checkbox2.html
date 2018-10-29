@@ -9,10 +9,10 @@
     <script src="../../utils/js/jquery-1.10.2.js"></script>
     <script type="text/javascript">
         window.onload = function () {
-            $('#ck1').attr('checked', true);
+            $('#ck1').prop('checked', true);
             $('#ck1').on('click', function (e) {
                 // e.preventDefault();
-                console.log($(this).attr('checked')); // checked
+                console.log($(this).prop('checked')); // true or false
             });
         }
     </script>

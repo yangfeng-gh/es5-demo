@@ -3,7 +3,7 @@
  * @param fn
  * @param hole 占位符
  */
-function curry(fn, hole) {
+function currying(fn, hole) {
   const __len = fn.length;
   let args = [];
   return function h() {
@@ -24,3 +24,9 @@ function curry(fn, hole) {
     }
   }
 }
+
+var add = function(x, y) {
+  return x + y;
+};
+var myAdd = currying(add, '-');
+myAdd();
