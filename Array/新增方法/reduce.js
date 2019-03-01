@@ -8,7 +8,7 @@ initialValue参数可选，表示初始值。若指定，则当作最初使用�
 var sum = [1, 2, 3, 4].reduce(function (previous, current, index, array) {
     console.log('previous: %s, current: %s', previous, current);
     return previous + current;
-});
+}, 9);
 
 console.log(sum); // 10
 

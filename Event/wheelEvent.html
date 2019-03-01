@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>滚轮事件（wheelEvent）</title>
+</head>
+<body>
+<script>
+  var onwheel = function(e){
+    var _log = "",
+      _ie9 = navigator.userAgent.indexOf("MSIE 9.0") > 0,
+      _h = _ie9 ? window.innerHeight : document.body.clientHeight;  //兼容IE9
+
+    _log += "deltaY:" + e.deltaY;
+    _log += "|wheelDelta:" + e.wheelDelta;
+    _log += "|detail:" + e.detail;
+    _log += "|H:" + _h;
+
+    console.log(_log);
+  };
+
+  document.addEventListener("wheel", onwheel, false);
+</script>
+</body>
+</html>
