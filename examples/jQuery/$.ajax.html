@@ -16,10 +16,10 @@
   /*global $*/
   $('#ajax').click(function () {
     $.ajax({
-      url: 'http://192.168.2.55:9090/cors-demo/jsonp',
+      url: 'http://a.yf.com:8070/cors-demo/jsonp',
       data: {},
       dataType: 'jsonp',
-      // jsonp: 'cb', //这个参数必须与服务器端一致,服务器应该返回cb(json)
+      jsonp: 'cb', // 这个参数必须与服务器端一致,服务器应该返回cb(json),缺省默认值为'callback'
       jsonpCallback: 'foo',
       success: function (data, textStatus, jqXHR) {
         $('[name="json"]').val(JSON.stringify(data))
